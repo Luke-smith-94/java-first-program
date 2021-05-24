@@ -1,5 +1,8 @@
 package com.h2;
 
+import java.time.LocalDate;
+import java.time.YearMonth;
+
 public class SavingsCalculator {
     private float[] credits;
     private float[] debits;
@@ -15,4 +18,43 @@ public class SavingsCalculator {
         }
         return sum;
     }
+    private float sumOfDebits() {
+        float sum = 0.0f;
+        for (float debit : debits) {
+            sum += debit;
+        }
+        return sum;
+    }
+
+    private static int remainingDaysInMonth(LocalDate date){
+        YearMonth yearMonth = YearMonth.of(date.getYear(), date.getMonth());
+        int totalDaysInMonth = yearMonth.lengthOfMonth();
+        int remainingDays = date.getDayOfMonth() - totalDaysInMonth;
+        return remainingDays;
+    }
+
+    public float calculate() {
+        return sumOfDebits() - sumOfCredits();
+    }
+
+    public static void main(String[] args) {
+        String[] creditAsString = args[0].split(",");
+        String[] debitAsString = args[1].split(",");
+
+        float[] credits = new float[creditAsString.length];
+        float[] debits = new float[debitAsString.length];
+
+        for(int i=0; i<creditAsString.length; i++) {
+            credits[i] = Float.parseFloat(creditAsString[i]);
+        }
+
+        for(int i=0; i<debitAsString.length; i++) {
+            debits[i] = Float.parseFloat(debitAsString[i]);
+        }
+
+
+
+
+    }
 }
+
