@@ -22,9 +22,9 @@ public class Finance {
             case BEST_LOAN_RATES:
                 return args.length == 1;
             case SAVINGS_CALCULATOR:
-                return args.length == 2;
-            case MORTGAGE_CALCULATOR:
                 return args.length == 3;
+            case MORTGAGE_CALCULATOR:
+                return args.length == 4;
         }
         return false;
     }
@@ -32,7 +32,7 @@ public class Finance {
     private static void executeCommand(String command, String[] arguments) {
         switch (command) {
             case BEST_LOAN_RATES:
-                System.out.println("Finding best loan rates ...")
+                System.out.println("Finding best loan rates ...");
                 BestLoanRates.main(arguments);
                 return;
 
