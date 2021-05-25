@@ -23,8 +23,8 @@ public class MortgageCalculator {
     }
 
     private float getMonthlyInterestRate() {
-        float interestRate = annualRate / 12;
-        return interestRate;
+        float interestRate = annualRate / 100;
+        return interestRate / 12;
     }
 
     public void calculateMonthlyPayment() {
