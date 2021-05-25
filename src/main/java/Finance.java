@@ -1,14 +1,14 @@
-import java.util.Arrays;
-import java.util.Map;
-import com.h2.MortgageCalculator;
 import com.h2.BestLoanRates;
+import com.h2.MortgageCalculator;
 import com.h2.SavingsCalculator;
 
-public class Finance {
+import java.util.Arrays;
+import java.util.Map;
 
-    public final static String BEST_LOAN_RATES = "bestLoanRates";
-    public final static String SAVINGS_CALCULATOR = "savingsCalculator";
-    public final static String MORTGAGE_CALCULATOR = "mortgageCalculator";
+public class Finance {
+    public static final String BEST_LOAN_RATES = "bestLoanRates";
+    public static final String SAVINGS_CALCULATOR = "savingsCalculator";
+    public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
 
     public static final Map<String, String> commandsToUsage = Map.of(
             BEST_LOAN_RATES, "usage: bestLoanRates",
@@ -17,7 +17,6 @@ public class Finance {
     );
 
     private static boolean validateCommandArguments(String[] args) {
-
         switch (args[0]) {
             case BEST_LOAN_RATES:
                 return args.length == 1;
@@ -35,12 +34,10 @@ public class Finance {
                 System.out.println("Finding best loan rates ...");
                 BestLoanRates.main(arguments);
                 return;
-
             case SAVINGS_CALCULATOR:
                 System.out.println("Finding your net savings ...");
                 SavingsCalculator.main(arguments);
                 return;
-
             case MORTGAGE_CALCULATOR:
                 System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
